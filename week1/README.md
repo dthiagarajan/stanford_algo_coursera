@@ -8,6 +8,7 @@ My approach here stemmed from noticing that this required operations equal to th
 Suppose we had the array [5,1,3,2,7,4]. We populate a second array as we traverse the first one to find the initial maximum, as follows: [],[5,1,3,2,7,4] -> [5],[3,2,7,4] -> [5,3],[7,4] -> [5,3,7],[]. Holding onto this array, we do the same thing again with the new array: [],[5,3,7] -> [5],[7] -> 7. Now, we look at what elements we compared with 7, by going back to the array we held onto, namely, [5,3,7]. Clearly, out of the elements in this array that aren't 7, 5 is the maximum, and will thus be the second-highest element in this array.
 
 The reason this works can essentially be proven by showing that the second-maximum element is in every level of comparison except at the very end, when we end up with the maximum number.
+
 2. You are a given a unimodal array of n distinct elements, meaning that its entries are in increasing order up until its maximum element, after which its elements are in decreasing order. Give an algorithm to compute the maximum element that runs in O(log n) time.
 
 This is pretty much just a binary search: we look at the middle element of the array, and the element right after that. If these two elements are in sequence, recurse on the right half, else recurse on the left half.
